@@ -3,6 +3,22 @@ import java.util.List;
 
 public class Solution_For_Part_B {
 
+    public static List<Double> Calculate_Probability_Sum(List<Integer> arr_A, List<Integer> arr_B) {
+        List<Double> Probability_Sum = new ArrayList<>(List.of(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0));
+        for (int i : arr_A) {
+            for (int j : arr_B) {
+                int k = i + j;
+                Probability_Sum.set(k - 1, Probability_Sum.get(k - 1) + 1);
+            }
+        }
+        for (int i = 0; i < Probability_Sum.size(); i++) {
+            if (Probability_Sum.get(i) != 0) {
+                Probability_Sum.set(i, Probability_Sum.get(i) / 36);
+            }
+        }
+        return Probability_Sum;
+    }
+
     public static void Combinations_of_dice_A(List<Integer> arr, int length, List<Integer> present, List<List<Integer>> allCombinations) {
         if (present.size() == length) {
             allCombinations.add(new ArrayList<>(present));
@@ -25,22 +41,6 @@ public class Solution_For_Part_B {
             Combinations_of_dice_B(arr, length, i + 1, present, allCombinations);
             present.remove(present.size() - 1);
         }
-    }
-
-    public static List<Double> Calculate_Probability_Sum(List<Integer> arr_A, List<Integer> arr_B) {
-        List<Double> Probability_Sum = new ArrayList<>(List.of(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0));
-        for (int i : arr_A) {
-            for (int j : arr_B) {
-                int k = i + j;
-                Probability_Sum.set(k - 1, Probability_Sum.get(k - 1) + 1);
-            }
-        }
-        for (int i = 0; i < Probability_Sum.size(); i++) {
-            if (Probability_Sum.get(i) != 0) {
-                Probability_Sum.set(i, Probability_Sum.get(i) / 36);
-            }
-        }
-        return Probability_Sum;
     }
 
     static void doomed_dice(int[] Dice_A, int[] Dice_B, List<Double> Probability_Sums) {
