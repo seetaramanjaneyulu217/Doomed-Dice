@@ -64,22 +64,24 @@ public class Solution_For_Part_B {
 
         for (List<Integer> list_A : combination_A) {
             for (List<Integer> list_B : combination_B) {
+                
+                // if probabilities are equal then print those lists
                 if (Calculate_Probability_Sum(list_A, list_B).equals(Probability_Sums)) {
                     System.out.print("New_Dice_A = [");
-                    for (int x : list_A) {
-                        System.out.print(x + ",");
+                    for (int element : list_A) {
+                        System.out.print(element + ",");
                     }
                     System.out.println("]");
                     System.out.print("New_Dice_B = [");
-                    for (int x : list_B) {
-                        System.out.print(x + ",");
+                    for (int element : list_B) {
+                        System.out.print(element + ",");
                     }
                     System.out.println("]");
                     flag = true;
                     break;
                 }
             }
-            
+
             if (flag) break;
         }
     }
