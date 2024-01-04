@@ -1,0 +1,8 @@
+We will be having the probabilities of the old dices.
+
+So in the first step we will be calculating the all possible combinations for the both dices possible.
+After getting all the possible combinations we will be calculation the probabilities for each pair of lists.
+
+If we get the probabilities equal then those are the pairs we are looking for.
+
+We will be using two for loops to get the probability calculated and check the probabilities calculated with the old probabilities.
